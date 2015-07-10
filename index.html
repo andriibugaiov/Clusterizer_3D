@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+ 	<script src="Clusterizer3D.js"></script>
+ </head>
+
+<body>
+	<script>
+	var points3D = [];
+	
+	// cluster
+	points3D.push(new Point3D(0, 0, 0));
+	points3D.push(new Point3D(1, 1, 0));
+	points3D.push(new Point3D(1, 1, 0));
+
+	// cluster
+	points3D.push(new Point3D(10, 2, 0));
+	points3D.push(new Point3D(11, 1, 0));
+	points3D.push(new Point3D(10, 1, 1));
+
+	// cluster
+	points3D.push(new Point3D(20, 20, 10));
+	points3D.push(new Point3D(25, 20, 14));
+
+	shuffle(points3D);
+
+	// clusters count
+	var K = 3;
+	var clusterizer = new Clusterizer3D();
+	var clusters = clusterizer.clusterize(K, points3D);
+	for (var i = 0; i < clusters.length; ++i) {
+		console.log("Cluster " + i + " contains " + clusters[i].length + " points!")
+	}
+	</script>
+</body>
+</html>
